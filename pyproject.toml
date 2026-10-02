@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf2docx-pdfium"
+version = "0.1.0"
+description = "PDF to DOCX converter (port of pdf2docx) running on PDFium instead of PyMuPDF/MuPDF"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Vitaly Kalinin" }]
+dependencies = [
+    "pypdfium2>=4.30",
+    "python-docx>=0.8.10",
+    "fonttools>=4.24.0",
+    "numpy>=1.17.2",
+    "opencv-python-headless>=4.5",
+    "Pillow>=9.0",
+    "fire>=0.3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "reportlab"]
+
+[project.scripts]
+pdf2docx-pdfium = "pdf2docx_pdfium.main:main"
+
+[tool.setuptools.packages.find]
+include = ["pdf2docx_pdfium*"]
